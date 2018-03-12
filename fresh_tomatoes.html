@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rays Movies!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #FFFF00;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        #popup {
+            font-size: 10px;
+            font-color:green;
+            position:relative;
+            top:0vh;
+            left:0vw;
+            width:27.5vw;
+            background-color:#EFF1F3;
+            color:black;
+            -khtml-opacity:0;
+            -moz-opacity : 0;
+            -ms-filter: "alpha(opacity=0)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+            filter : alpha(opacity=0);
+            opacity : 0;
+            padding:5px;
+            border-style:solid;
+            border-radius:5px;
+            border-color:#bbd8b3;
+            transition:all 1s;
+            -webkit-transition:all 1s;
+         }
+        #popup:hover{
+            -khtml-opacity:1;
+            -moz-opacity : 1;
+            -ms-filter: "alpha(opacity=100)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+            filter : alpha(opacity=100);
+            opacity : 1;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Rays Favs Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tVAxlqHaMNo" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/k0PN3Ho12cGGIVJW7SCS7apLYaP.jpg" width="230" height="300">
+    <h2>Demolition Man</h2>
+    <p><i> The 21st Century's most dangerous cop. The 21st Century's most ruthless criminal. </i></p>
+    <div id="popup" style="text-align:left">
+            Simon Phoenix, a violent criminal cryogenically frozen in 1996, has escaped during a parole hearing in 2032 in the utopia of San Angeles. Police are incapable of dealing with his violent ways and turn to his captor, John Spartan, who had also been cryogenically frozen when wrongfully accused of killing 30 innocent people while apprehending Phoenix.
+    </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ORFWdXl_zJ4" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/nk11pvocdb5zbFhX5oq5YiLPYMo.jpg" width="230" height="300">
+    <h2>Up</h2>
+    <p><i>  </i></p>
+    <div id="popup" style="text-align:left">
+            Carl Fredricksen spent his entire life dreaming of exploring the globe and experiencing life to its fullest. But at age 78, life seems to have passed him by, until a twist of fate (and a persistent 8-year old Wilderness Explorer named Russell) gives him a new lease on life.
+    </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="dxWvtMOGAhw" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/uxzzxijgPIY7slzFvMotPv8wjKA.jpg" width="230" height="300">
+    <h2>Black Panther</h2>
+    <p><i> Long live the king </i></p>
+    <div id="popup" style="text-align:left">
+            After the events of Captain America: Civil War, King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne from factions within his own country. When two foes conspire to destroy Wakanda, the hero known as Black Panther must team up with C.I.A. agent Everett K. Ross and members of the Dora Milaje, Wakandan special forces, to prevent Wakanda from being dragged into a world war.
+    </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8-_9n5DtKOc" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/9cJETuLMc6R0bTWRA5i7ctY9bxk.jpg" width="230" height="300">
+    <h2>Wall-E</h2>
+    <p><i> An adventure beyond the ordinar-E. </i></p>
+    <div id="popup" style="text-align:left">
+            WALL·E is the last robot left on an Earth that has been overrun with garbage and all humans have fled to outer space. For 700 years he has continued to try and clean up the mess, but has developed some rather interesting human-like qualities. When a ship arrives with a sleek new type of robot, WALL·E thinks he's finally found a friend and stows away on the ship when it leaves.
+    </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XgB4gaY2dWE" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/jx5p0aHlbPXqe3AH9G15NvmWaqQ.jpg" width="230" height="300">
+    <h2>Return Of The Jedi</h2>
+    <p><i> The Empire Falls... </i></p>
+    <div id="popup" style="text-align:left">
+            As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.
+    </div>
+</div>
+
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KwYa7UpoWtM" data-toggle="modal" data-target="#trailer" >
+    <img src="https://image.tmdb.org/t/p/w154/6u1fYtxG5eqjhtCPDx04pJphQRW.jpg" width="230" height="300">
+    <h2>Empire Strikes Back</h2>
+    <p><i> The Adventure Continues... </i></p>
+    <div id="popup" style="text-align:left">
+            The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.
+    </div>
+</div>
+
+
+    </div>
+  </body>
+</html>
