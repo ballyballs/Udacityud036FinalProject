@@ -10,11 +10,11 @@ class Movie():
     4) movie tagline
     5) movie overview
     """
-    def __init__(self, title,tag_line,overview, poster_url, youtube_video_id):
+
+    def __init__(self, title, tag_line, overview, poster_url,
+                 youtube_video_id):
         self.title = title
-        self.poster_url=poster_url
-        self.youtube_video_id=youtube_video_id
-        self.tag_line=tag_line
-        self.overview=overview
-
-
+        self.poster_url = poster_url
+        self.youtube_video_id = youtube_video_id
+        self.tag_line = tag_line
+        self.overview = overview
